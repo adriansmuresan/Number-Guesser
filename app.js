@@ -17,10 +17,20 @@ let min = 4,
 const game = document.querySelector('#game'),
       minNum = document.querySelector('.min-num'),
       maxNum = document.querySelector('.max-num'),
-      guessBTN = document.querySelector('#guess-btn'),
+      guessBtn = document.querySelector('#guess-btn'),
       guessInput = document.querySelector('#guess-input'),
       message = document.querySelector('.message');
 
 // Assign UI min and max
 minNum.textContent = min;
 maxNum.textContent = max;
+
+// Listen for guess
+guessBtn.addEventListener('click', function(){
+  // Set the guess value by parsing it as an integer
+  let guess = parseInt(guessInput.value);
+  // console.log(guess);
+  if(guess === NaN || guess < min || guess > max) {
+    setMessage(`Please enter a number between ${min} and ${max}`);
+  } 
+});
