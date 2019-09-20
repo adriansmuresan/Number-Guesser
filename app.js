@@ -53,12 +53,16 @@ guessBtn.addEventListener('click', function(){
     guessesLeft -= 1;
     if(guessesLeft === 0) {
       // Game over - lost
-      // Disable input
-    guessInput.disabled = true;
-    // Change border color
-    guessInput.style.borderColor = 'red';
-    // Set message
-    setMessage(`Game Over, you lost. The winning number was ${winningNum}`, 'red');
+
+    //   // Disable input
+    // guessInput.disabled = true;
+    // // Change border color
+    // guessInput.style.borderColor = 'red';
+    // // Set message
+    // setMessage(`Game Over, you lost. The winning number was ${winningNum}`, 'red');
+
+    gameOver(false, `Game Over, you lost. The winning number was ${winningNum}`);
+
     } else {
       // Game continues - answer wrong
 
