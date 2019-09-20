@@ -8,7 +8,7 @@ Game function:
 */
 
 // Game values
-let min = 4,
+let min = 1,
     max = 10,
     winningNum = 2,
     guessesLeft = 3;
@@ -30,9 +30,24 @@ guessBtn.addEventListener('click', function(){
   // Set the guess value by parsing it as an integer
   let guess = parseInt(guessInput.value);
   // console.log(guess);
-  if(isNaN || guess < min || guess > max) {
+
+  // Validate
+  if(isNaN(guess) || guess < min || guess > max) {
     setMessage(`Please enter a number between ${min} and ${max}`, 'red');
   } 
+
+  // Check if winning number
+  if(guess === winningNum) {
+    // Disable input
+    guessInput.disabled = true;
+    // Change border color
+    guessInput.style.borderColor = 'green';
+    // Set message
+    setMessage(`${winningNum} is correct, YOU WIN!!!`, 'green');
+  } else {
+
+  }
+
 });
 
 // Set message
